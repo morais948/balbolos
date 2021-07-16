@@ -1,18 +1,17 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/aguarde">Aguarde</router-link>
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Lato', sans-serif;;
   text-align: center;
   color: #2c3e50;
+  box-sizing: border-box;
 }
 
 #nav {
@@ -25,6 +24,23 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: goldenrod;
+}
+.texto-fixo {
+    font-size: 1rem;
+    position: fixed;
+    top: 85%;
+    right: 5%;
+    background-color: gray;
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 8px #888888;
+    border: solid 1px goldenrod;
+    margin-left: 5%;
+}
+.img-cat{
+    border-radius: 10%;
+    border: 1px solid goldenrod;
 }
 </style>
