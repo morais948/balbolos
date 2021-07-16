@@ -6,16 +6,11 @@
       msg-op="espero que goste"
       emoji="🐱"
     />
-    <img
-      height="400"
-      width="400"
-      class="img-fluid img-cat mb-2 rounded"
-      data-aos="fade-down"
-      alt="simba um gatinho simpatico"
-      src="../assets/imgs/simba.jpg"
-    />
+  
   </div>
-  <h1 data-aos="fade-up" class="texto-fixo">Criado por Matheus Morais Dev fullStack ❤️</h1>
+  <h1 data-aos="fade-up" class="texto-fixo">
+    Criado por Matheus Morais Dev fullStack ❤️
+  </h1>
 </template>
 
 <script>

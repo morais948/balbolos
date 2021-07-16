@@ -1,7 +1,7 @@
 <template>
     <div class="about">
         <HelloWorld class="mb-2" data-aos="fade-up" msg="Espere ansiosamente" emoji="💕"/>
-        <img height="400" width="400" class="img-fluid img-cat mb-2 rounded" data-aos="fade-down" alt="simba um gatinho simpatico" src="../assets/imgs/olivia.jpg">
+       
         <h1 data-aos="fade-up" class="texto-fixo">Criado por Matheus Morais Dev fullStack ❤️</h1>
     </div>
 </template>
