@@ -29,7 +29,8 @@
 .texto-fixo {
     font-size: 1rem;
     position: fixed;
-    top: 85%;
+    top: 80%;
+    opacity: 0.8 !important;
     right: 5%;
     background-color: gray;
     color: white;
