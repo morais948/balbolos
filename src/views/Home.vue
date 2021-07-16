@@ -2,7 +2,7 @@
   <div class="home">
     <HelloWorld
       data-aos="fade-up"
-      msg="Eai tia da ração! Matheus me enviou para te informar que teu site ficará aqui"
+      msg="Eai tia da ração! Matheus me enviou para te informar que teu site ficará aqui (em dev)"
       msg-op="espero que goste"
       emoji="🐱"
     />
