@@ -1,10 +1,10 @@
 <template>
   <header>
-    <div class="row" style="max-height: 500px;">
-        <div class="col-2 d-none d-lg-block p-4">
-            <img style="border-radius: 5%; margin-right: 5%" class="img-fluid rounded-circle" src="./assets/imgs/logo.png" alt="">
+    <div class="row position-fixed" style="background-color: rgba(0,0,0,.5); width: 100%">
+        <div class="col-2 d-none d-lg-block d-flex justify-content-center align-items-center position-relative">
+            <img style="max-height: 200px; border: solid 1px white" class="img-fluid rounded-circle position-absolute top-100 start-100 translate-middle" src="./assets/imgs/logo.gif" alt="logo">
         </div>
-        <div class="col-10 col-md-12 p-2 d-flex justify-content-lg-around align-items-center">
+        <div class="col-12 col-lg-10 p-2 d-flex justify-content-lg-around align-items-center">
             <nav id="nav" style="width: 100%" class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
                     <button
@@ -18,19 +18,19 @@
                     >
                         <i class="fas fa-bars"></i>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <router-link to="/">Home</router-link> |
+                    <div class="collapse navbar-collapse d-lg-flex justify-content-lg-around align-items-lg-center" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item mb-2">
+                                <router-link style="margin-left: 15px; text-decoration: none;" to="/">Home</router-link>
                             </li>
-                            <li class="nav-item">
-                                <router-link to="/aguarde">Aguarde</router-link>
+                            <li class="nav-item mb-2">
+                                <router-link style="margin-left: 15px; text-decoration: none;" to="/aguarde">Aguarde</router-link>
                             </li>
                         </ul>
-                        <form class="d-flex">
+                        <form style="width: 30%" class="d-flex justify-content-around align-items-center mt-2">
                     
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                        <div class="input-group d-flex justify-content-around align-items-center">
+                            <span class="input-group-text" style="display: block" id="basic-addon1"><i class="fas fa-search"></i></span>
                             <input type="search" class="form-control me-2" placeholder="o que você procura?" aria-label="Search" aria-describedby="basic-addon1">
                         </div>
                         </form>
@@ -39,9 +39,8 @@
             </nav>
         </div>
     </div>
-    <router-view />
   </header>
-
+  <router-view />
 </template>
 
 <style>
@@ -52,6 +51,7 @@ header {
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
+  color: black;
 }
 #app {
   font-family: "Lato", sans-serif;
@@ -71,7 +71,7 @@ header {
 }
 
 #nav a.router-link-exact-active {
-  color: yellow;
+  color: #FBE5BE;
 }
 .texto-fixo {
   font-size: 1rem;

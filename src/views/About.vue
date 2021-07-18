@@ -1,8 +1,6 @@
 <template>
     <div class="about">
-        <HelloWorld class="mb-2" data-aos="fade-up" msg="Espere ansiosamente" emoji="💕"/>
-       
-        <h1 data-aos="fade-up" class="texto-fixo">Criado por Matheus Morais Dev fullStack ❤️</h1>
+        <HelloWorld class="mb-2" msg="Espere ansiosamente" emoji="💕"/>
     </div>
 </template>
 <script>
