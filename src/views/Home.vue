@@ -1,16 +1,11 @@
 <template>
+  <header>
+  </header>
   <main :style="'margin-top:' + tamanhoMenu " class="container">
     <h1>teste home</h1>
-    <br>
-    <br>
-        <br>
-    <br>
-        <br>
-    <br>
-        <br>
-    <br>
-    <p>
-      {{  }}
+    <button @click="this.digita()">click</button>
+    <p id="frase">
+
     </p>
   </main>
 </template>
@@ -22,12 +17,31 @@ import { mapState } from 'vuex'
 
 export default {
   name: "Home",
+  data(){
+    return {
+      indice: 0,
+      txt: 'MATHEUS MORAIS VIEIRA DUARTE',
+      velocidade: 50 //milissegundos
+    }
+  },
   components: {
     HelloWorld,
   },
+  methods: {
+    digita() {
+      if (this.indice < this.txt.length) {
+        frase.innerHTML += this.txt.charAt(this.indice)
+        this.indice++
+        setTimeout(this.digita, this.velocidade)
+      }
+    }
+  },
   computed: mapState([
     'tamanhoMenu'
-  ])
+  ]),
+  updated(){
+    
+  }
 };
 </script>
 <style>

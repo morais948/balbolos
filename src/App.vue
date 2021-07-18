@@ -1,5 +1,5 @@
 <template>
-      <div id="menu" class="row position-fixed p-0 m-0" style="background-color: #8f6a57; width: 100%">
+      <div id="menu" class="row position-fixed p-0 m-0" style="background-color: rgba(0, 0, 0, .5); width: 100%">
         <div data-aos="fade-right" class="col-2 d-none d-lg-block d-flex justify-content-center align-items-center position-relative">
           <router-link style="text-decoration: none;" to="/">
             <img style="max-height: 200px; border: solid 1px white" class="img-fluid rounded-circle position-absolute top-100 start-100 translate-middle" src="./assets/imgs/logo.gif" alt="logo">
