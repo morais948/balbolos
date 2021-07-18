@@ -1,8 +1,9 @@
 <template>
-  <header>
-    <div class="row position-fixed" style="background-color: rgba(0,0,0,.5); width: 100%">
-        <div class="col-2 d-none d-lg-block d-flex justify-content-center align-items-center position-relative">
+      <div id="menu" class="row position-fixed p-0 m-0" style="background-color: #8f6a57; width: 100%">
+        <div data-aos="fade-right" class="col-2 d-none d-lg-block d-flex justify-content-center align-items-center position-relative">
+          <router-link style="text-decoration: none;" to="/">
             <img style="max-height: 200px; border: solid 1px white" class="img-fluid rounded-circle position-absolute top-100 start-100 translate-middle" src="./assets/imgs/logo.gif" alt="logo">
+          </router-link>
         </div>
         <div class="col-12 col-lg-10 p-2 d-flex justify-content-lg-around align-items-center">
             <nav id="nav" style="width: 100%" class="navbar navbar-expand-lg navbar-light">
@@ -19,7 +20,7 @@
                         <i class="fas fa-bars"></i>
                     </button>
                     <div class="collapse navbar-collapse d-lg-flex justify-content-lg-around align-items-lg-center" id="navbarSupportedContent">
-                        <ul class="navbar-nav">
+                        <ul data-aos="fade-left" class="navbar-nav">
                             <li class="nav-item mb-2">
                                 <router-link style="margin-left: 15px; text-decoration: none;" to="/">Home</router-link>
                             </li>
@@ -27,9 +28,9 @@
                                 <router-link style="margin-left: 15px; text-decoration: none;" to="/aguarde">Aguarde</router-link>
                             </li>
                         </ul>
-                        <form style="width: 30%" class="d-flex justify-content-around align-items-center mt-2">
+                        <form :style="this.larguraPagina >= 992 ? 'width: 30%' : 'width: 100%'" class="d-flex justify-content-around align-items-center mt-2">
                     
-                        <div class="input-group d-flex justify-content-around align-items-center">
+                        <div data-aos="fade-right" class="input-group d-flex justify-content-around align-items-center">
                             <span class="input-group-text" style="display: block" id="basic-addon1"><i class="fas fa-search"></i></span>
                             <input type="search" class="form-control me-2" placeholder="o que você procura?" aria-label="Search" aria-describedby="basic-addon1">
                         </div>
@@ -39,26 +40,37 @@
             </nav>
         </div>
     </div>
-  </header>
-  <router-view />
+    <router-view />
 </template>
+<script>
+import { mapState } from 'vuex'
+export default {
+  data(){
+    return {
+
+    }
+  },
+  methods: {
+   
+  },
+  computed: mapState([
+    'larguraPagina'
+  ]),
+  mounted(){
+    this.$store.dispatch('carregaLarguraAlturaPagina')
+    this.$store.dispatch('carregaMargem')
+  }
+}
+</script>
 
 <style>
-header {
-  background-image: url("./assets/imgs/bg-top.jpg"); /* The image used */
-  background-color: #cccccc; /* Used if the image is unavailable */
-  height: 100vh; /* You must set a specified height */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
-  color: black;
-}
 #app {
   font-family: "Lato", sans-serif;
   text-align: center;
   color: #2c3e50;
   box-sizing: border-box;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 #nav {
@@ -71,6 +83,7 @@ header {
 }
 
 #nav a.router-link-exact-active {
+  /*color: #a19d96;*/
   color: #FBE5BE;
 }
 .texto-fixo {
