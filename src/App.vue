@@ -41,9 +41,13 @@
         </div>
     </div>
     <router-view />
+    <WhatsApp />
 </template>
 <script>
+
 import { mapState } from 'vuex'
+import WhatsApp from "@/components/Whats.vue";
+
 export default {
   data(){
     return {
@@ -56,6 +60,9 @@ export default {
   computed: mapState([
     'larguraPagina'
   ]),
+  components: {
+    WhatsApp,
+  },
   mounted(){
     this.$store.dispatch('carregaLarguraAlturaPagina')
     this.$store.dispatch('carregaMargem')

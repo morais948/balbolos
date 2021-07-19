@@ -1,18 +1,15 @@
 <template>
-  <header>
+  <header class="d-flex justify-content-center align-items-center">
+    <p id="frase" class="p-4"></p>
   </header>
   <main :style="'margin-top:' + tamanhoMenu " class="container">
     <h1>teste home</h1>
-    <button @click="this.digita()">click</button>
-    <p id="frase">
 
-    </p>
   </main>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 import { mapState } from 'vuex'
 
 export default {
@@ -20,27 +17,29 @@ export default {
   data(){
     return {
       indice: 0,
-      txt: 'MATHEUS MORAIS VIEIRA DUARTE',
-      velocidade: 50 //milissegundos
+      txt: 'VENHA CONHECER O MELHOR BOLO DA REGIÃO',
     }
   },
   components: {
-    HelloWorld,
+
   },
   methods: {
     digita() {
       if (this.indice < this.txt.length) {
         frase.innerHTML += this.txt.charAt(this.indice)
         this.indice++
-        setTimeout(this.digita, this.velocidade)
+        setTimeout(this.digita, this.gerarNumeroAleatorio(50, 200))
       }
+    },
+    gerarNumeroAleatorio(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
     }
   },
   computed: mapState([
     'tamanhoMenu'
   ]),
-  updated(){
-    
+  mounted(){
+    this.digita()
   }
 };
 </script>
@@ -56,5 +55,22 @@ export default {
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
     color: black;
+  }
+  #frase{
+    z-index: 10; 
+    color: white; 
+    font-size: 4rem;
+    text-shadow: 0.1em 0.1em #333;
+    font-weight: bold;
+  }
+  @media only screen and (max-width: 320px) {
+    #frase {
+      font-size: 2rem;
+    }
+  }
+  @media only screen and (max-width: 370px) {
+    #frase {
+      font-size: 2rem;
+    }
   }
 </style>
