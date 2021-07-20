@@ -3,12 +3,7 @@
     <p id="frase" class="p-4"></p>
   </header>
   <main class="container">
-    
-    
-    <a data-fancybox="single" :href="getImgUrl('imgs/bolo-teste.jpg')">
-      <img height="200" width="200" :src="getImgUrl('imgs/bolo-teste.jpg')" />
-    </a>
-
+    <!--codificar fancybox-->
     <ListaProdutos categoria="bolos" quantidade=4 />
   </main>
 </template>
@@ -17,8 +12,6 @@
 // @ is an alias to /src
 import { mapState } from 'vuex'
 import ListaProdutos from '@/components/ListaProdutos.vue';
-import { Fancybox } from "@fancyapps/ui";
-
 
 export default {
   name: "Home",
