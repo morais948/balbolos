@@ -2,15 +2,23 @@
   <header class="d-flex justify-content-center align-items-center">
     <p id="frase" class="p-4"></p>
   </header>
-  <main :style="'margin-top:' + tamanhoMenu " class="container">
-    <h1>teste home</h1>
+  <main class="container">
+    
+    
+    <a data-fancybox="single" :href="getImgUrl('imgs/bolo-teste.jpg')">
+      <img height="200" width="200" :src="getImgUrl('imgs/bolo-teste.jpg')" />
+    </a>
 
+    <ListaProdutos categoria="bolos" quantidade=4 />
   </main>
 </template>
 
 <script>
 // @ is an alias to /src
 import { mapState } from 'vuex'
+import ListaProdutos from '@/components/ListaProdutos.vue';
+import { Fancybox } from "@fancyapps/ui";
+
 
 export default {
   name: "Home",
@@ -21,7 +29,7 @@ export default {
     }
   },
   components: {
-
+    ListaProdutos,
   },
   methods: {
     digita() {
@@ -33,6 +41,9 @@ export default {
     },
     gerarNumeroAleatorio(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
+    getImgUrl(url) {
+        return require('../assets/' + url)
     }
   },
   computed: mapState([

@@ -22,7 +22,7 @@
                     <div class="collapse navbar-collapse d-lg-flex justify-content-lg-around align-items-lg-center" id="navbarSupportedContent">
                         <ul data-aos="fade-left" class="navbar-nav">
                             <li class="nav-item mb-2">
-                                <router-link style="margin-left: 15px; text-decoration: none;" to="/">Home</router-link>
+                                <a style="margin-left: 15px; text-decoration: none;" href @click.prevent="carregaSecao('bolos')">Bolos</a>
                             </li>
                             <li class="nav-item mb-2">
                                 <router-link style="margin-left: 15px; text-decoration: none;" to="/aguarde">Aguarde</router-link>
@@ -55,7 +55,9 @@ export default {
     }
   },
   methods: {
-   
+    carregaSecao(id){
+      document.getElementById(id).scrollIntoView({behavior: "smooth"})
+    }
   },
   computed: mapState([
     'larguraPagina'
@@ -66,6 +68,7 @@ export default {
   mounted(){
     this.$store.dispatch('carregaLarguraAlturaPagina')
     this.$store.dispatch('carregaMargem')
+    this.$store.dispatch('carregaProdutos')
   }
 }
 </script>
@@ -78,6 +81,9 @@ export default {
   box-sizing: border-box;
   overflow-x: hidden;
   scroll-behavior: smooth;
+}
+#menu{
+  z-index: 15; 
 }
 
 #nav {
