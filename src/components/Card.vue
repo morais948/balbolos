@@ -28,7 +28,6 @@ export default {
         }
     },
     mounted(){
-        console.log(this.borda, this.bordaSim)
     }
 }
 </script>
