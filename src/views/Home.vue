@@ -7,12 +7,12 @@
     <ListaProdutos nome-secao="bolos" categoria="bolos" quantidade=3 />
     <ListaProdutos nome-secao="salgados" categoria="salgados" quantidade=3 />
 
-    <section id="info" class="row p-2 mt-3 mb-3">
+    <section id="info" class="row p-5" style="margin-top: 5%">
       <h1 style="font-size: 4rem;"> Informações </h1>
       <hr class="mt-2">
-
-      <template v-for="(item, index) in informacoes" :key="index">
-        <div class="col-4 d-flex justify-content-center align-items-center">
+      <div class="col-12 d-flex justify-content-center justify-content-md-around align-items-center flex-wrap">
+        <template v-for="(item, index) in informacoes" :key="index">
+       
           <Card :animacao="item.animacao" bordaSim="s">
             <template v-slot:top>
               <div v-html="item.top"></div>
@@ -24,8 +24,9 @@
               <div v-html="item.texto"></div>
             </template>
           </Card>
-        </div>
+      
       </template>
+      </div>
     </section>
     <p>
       What is Lorem Ipsum?
