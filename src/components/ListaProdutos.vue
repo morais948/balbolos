@@ -6,7 +6,7 @@
     <div class="col-12 d-flex justify-content-center justify-content-md-around align-items-center flex-wrap">
         
         <template v-for="(item, index) in lista" :key="index">
-            <Card :animacao-aos="(index % 2 == 0) ? 'fade-up' : 'fade-down'">
+            <Card :animacao="(index % 2 == 0) ? 'fade-up' : 'fade-down'">
                 <template v-slot:top>
                     <img :src="getImgUrl(item.linkImagem)" class="card-img-top" alt="bolo"/>
                 </template>
