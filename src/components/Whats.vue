@@ -19,7 +19,7 @@ export default {
         bottom: 5%;
     }
     #whats{
-        transition: 1000s ease-in-out;
+        transition: ease-in-out 1s;
     }
     #whats i:hover{
         transform: scale(1.10);

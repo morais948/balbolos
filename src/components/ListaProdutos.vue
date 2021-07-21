@@ -1,24 +1,25 @@
 <template>
-  <section id="bolos" style="margin-top: 5%" class="row p-2">
-    <h1 style="font-size: 3rem; border: 3px double black"> {{ categoria }} </h1>
+  <section :id="nomeSecao" style="margin-top: 5%" class="row p-2">
+    <h1 style="font-size: 4rem;"> {{ categoria }} </h1>
+    <hr class="mt-2">
 
     <div class="col-12 d-flex justify-content-center justify-content-md-around align-items-center flex-wrap">
         
-        <template v-for="(item, index) in lista" :key="index" >
-            <div class="card mt-2 mb-2" style="width: 18rem">
-                <img
-                    :src="getImgUrl(item.linkImagem)"
-                    class="card-img-top"
-                    alt="bolo"/>
-
-                <div class="card-body">
-                <h5 class="card-title"> {{ item.name }} </h5>
-                <p class="card-text">
+        <template v-for="(item, index) in lista" :key="index">
+            <Card :animacao-aos="(index % 2 == 0) ? 'fade-up' : 'fade-down'">
+                <template v-slot:top>
+                    <img :src="getImgUrl(item.linkImagem)" class="card-img-top" alt="bolo"/>
+                </template>
+                <template v-slot:titulo>
+                    {{ item.name }}
+                </template>
+                <template v-slot:texto>
                     {{ item.descricao }}
-                </p>
-                <a :href="item.linkCompra" class="btn btn-primary"> comprar </a>
-                </div>
-            </div>
+                </template>
+                <template v-slot:btn>
+                    <a style="font-size: 1.4rem;" :href="item.linkCompra" class="btn btn-outline-secondary"> comprar </a>
+                </template>
+            </Card>
         </template>
     </div>
   </section>
@@ -26,9 +27,13 @@
 
 <script>
 import { mapState } from 'vuex';
+import Card from '@/components/Card.vue';
 
 export default {
     name: 'ListaProdutos',
+    components: {
+        Card
+    },
     data(){
         return {
             lista: ''
@@ -37,14 +42,15 @@ export default {
     methods: {
         getImgUrl(url) {
             return require('../assets/' + url)
-        }
+        },
     },
     computed: mapState([
         'listaProdutos'
     ]),
     props: [
+        'nomeSecao',
         'categoria',
-        'quantidade'
+        'quantidade',
     ],
     mounted(){
         this.lista = this.listaProdutos.filter(element => element.categoria === this.categoria).slice(0, this.quantidade)
@@ -53,4 +59,16 @@ export default {
 </script>
 
 <style>
+.btn-outline-secondary{
+    border: 1px solid rgba(0,0,0,.125);
+    transition: ease-in-out 200ms;
+}
+.btn-outline-secondary:hover{
+    background-color: white;
+    color: black;
+    transform: scale(1.05);
+}
+.card{
+    border: none;
+}
 </style>
