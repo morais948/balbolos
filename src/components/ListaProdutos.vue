@@ -1,5 +1,5 @@
 <template>
-  <section :id="nomeSecao" style="margin-top: 5%" class="row p-2">
+  <section :id="nomeSecao" style="margin-top: 5%; padding-bottom: 15%" class="row">
     <h1 style="font-size: 4rem;"> {{ categoria }} </h1>
     <hr class="mt-2">
 

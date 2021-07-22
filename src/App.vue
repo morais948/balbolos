@@ -36,17 +36,16 @@
                                 <a id="linkInformacoes" style="margin-left: 15px; margin-right: 15px; text-decoration: none;"  href @click.prevent="carregaSecao('info')">Informações</a>
                                 <div class="sublinhado mt-1"></div>
                             </li>
+                             <li class="nav-item mb-2">
+                                <a id="linkContato" style="margin-left: 15px; margin-right: 15px; text-decoration: none;"  href @click.prevent="carregaSecao('contato')">Contato</a>
+                                <div class="sublinhado mt-1"></div>
+                            </li>
+                            <!--
                             <li class="nav-item mb-2">
                                 <router-link style="margin-left: 15px; margin-right: 15px; text-decoration: none;" to="/aguarde">Aguarde</router-link>
                             </li>
+                            -->
                         </ul>
-                        <form :style="this.larguraPagina >= 992 ? 'width: 30%' : 'width: 100%'" class="d-flex justify-content-around align-items-center mt-2">
-                    
-                        <div data-aos="fade-right" class="input-group d-flex justify-content-around align-items-center">
-                            <span class="input-group-text" style="display: block" id="basic-addon1"><i class="fas fa-search"></i></span>
-                            <input type="search" class="form-control me-2" placeholder="o que você procura?" aria-label="Search" aria-describedby="basic-addon1">
-                        </div>
-                        </form>
                     </div>
                 </div>
             </nav>
@@ -147,6 +146,22 @@ export default {
     animation-duration: 1s;
     width: 100%;
     background-color: white;
+}
+.instagram{
+  color: #c62d98;
+  transition: ease-in-out 200ms;
+}
+.instagram:hover{
+  color: #c62d98;
+  transform: scale(1.10);
+  cursor: pointer;
+}
+.footer{
+  overflow: hidden; 
+  font-family: Arial, Helvetica, sans-serif; 
+  font-size: 1.2rem; 
+  color: white;
+  background-image: linear-gradient(to right, #FCE8C3,#947058);
 }
 @keyframes example {
   from{width: 0%;}

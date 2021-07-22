@@ -1,5 +1,5 @@
 <template>
-    <div class="card mt-2 mb-2" :class="{ 'borda' : this.borda }" :data-aos="animacao" style="width: 18rem">
+    <div class="card mt-2 mb-2" :class="{ 'borda' : this.borda }" :data-aos="animacao" style="width: 18rem;">
         <slot name="top"></slot>
 
         <div class="card-body" style="font-size: 1.4rem">
