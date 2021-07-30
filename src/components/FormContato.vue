@@ -32,9 +32,9 @@ export default {
     },
     methods: {
         enviar(){
-            let token = 'conteudo'
+            let token = localStorage.token
             let form = new FormData()
-            let url = 'https://opentdb.com/api.php?amount=10'
+            let url = 'http://localhost:8000/api/v1/produto?categoria=bolos'
 
             form.append('nome', this.nome)
             form.append('email', this.email)
@@ -42,19 +42,19 @@ export default {
        
             const config = {
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
                     'Accept': 'application/json',
                     'Authorization': 'Bearer ' + token
                 }
             }
             
-            this.axios.get(url)
+            this.axios.get(url, config)
                 .then(res => {
                     console.log(res.data)
                 })
                 .catch(err => {
-                    console.log(err)
+                    //console.log(err.response)//verificar pq ta vindo undefined
                 })
+
         }
     },
     mounted() {

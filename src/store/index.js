@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import { useWindowSize } from 'vue-window-size';
+import axios from 'axios'
 
 export default createStore({
   state: {
@@ -22,7 +23,7 @@ export default createStore({
     },
     carregaInformacoes(state, info){
       state.informacoes = info
-    }
+    },
   },
   actions: {
     carregaLarguraAlturaPagina({ commit }){
@@ -180,7 +181,7 @@ export default createStore({
         }
       ]
       commit('carregaProdutos', produtos)
-    }
+    },
   },
   modules: {
   }

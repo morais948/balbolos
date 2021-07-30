@@ -57,7 +57,8 @@
 <script>
 
 import { mapState } from 'vuex'
-import WhatsApp from "@/components/Whats.vue";
+import WhatsApp from "@/components/Whats.vue"
+import utils from './utils/utils.js'
 
 export default {
   data(){
@@ -82,6 +83,10 @@ export default {
     this.$store.dispatch('carregaMargem')
     this.$store.dispatch('carregaProdutos')
     this.$store.dispatch('carregaInformacoes')
+
+    if(!localStorage.token){
+      utils.login()
+    }
   }
 }
 </script>
