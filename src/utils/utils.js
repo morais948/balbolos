@@ -21,25 +21,24 @@ function login() {
     })
 }
 
-function refresh(request) {
-
-    let config = {
-        headers: {
-            'Accept': 'application/json',
-            'Authorization': 'Bearer ' + localStorage.token
+function refresh() {    
+    return new Promise((resolve, reject) => {
+        let config = {
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.token
+            }
         }
-    }
-    let url = `${process.env.VUE_APP_URL_API}/refresh`
-    /*
-    axios.post(url, {}, config)
+        let url = `${process.env.VUE_APP_URL_API}/refresh`
+
+        axios.post(url, {}, config)
         .then(res => {
             localStorage.token = res.data.token
-            console.log('fiz o refresh')
+            resolve(true)
         }).catch(err => {
-            console.log(err.response)
+            reject(false)
         })
-    */
-    
+    }) 
 }
 
 export default {

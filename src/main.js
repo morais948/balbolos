@@ -21,9 +21,16 @@ axios.interceptors.response.use(
     response => {
         return response
     },
-    error => {
+    async error => {
         if(error.response.status == 401 && error.response.data.message == "Token has expired"){
-            utils.refresh(error.request)
+            let retorno = await utils.refresh()
+            if(retorno){
+                error.config.__isRetryRequest = true
+                error.config.headers.Authorization = 'Bearer ' + localStorage.token
+                return axios.request(error.config)
+            }else{
+                return Promise.reject(error)
+            }
         }
         return Promise.reject(error)
     }
