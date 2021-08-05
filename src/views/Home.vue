@@ -4,8 +4,8 @@
   </header>
   <main class="container">
     <!--codificar fancybox-->
-    <ListaProdutos nome-secao="bolos" categoria="bolos" quantidade=3 />
-    <ListaProdutos nome-secao="salgados" categoria="salgados" quantidade=3 />
+    <ListaProdutos nome-secao="bolos" categoria="bolos" />
+    <ListaProdutos nome-secao="salgados" categoria="salgados" />
 
     <section id="info" class="row d-flex flex-wrap" style="margin-top: 5%; padding-bottom: 15%">
       <h1 style="font-size: 4rem;"> Informações </h1>

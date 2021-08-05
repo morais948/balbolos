@@ -65,122 +65,26 @@ export default createStore({
 
       commit('carregaInformacoes', info)
     },
-    carregaProdutos({ commit }){
-      let produtos = [
-        {
-          name: 'Bolo Branco',
-          categoria: 'bolos',
-          preco: '25.50',
-          descricao: 'bolo branco feito massa belga',
-          linkCompra: '',
-          linkImagem: 'imgs/bolo-teste.png'
-        },
-        {
-          name: 'Bolo de chocolate',
-          categoria: 'bolos',
-          preco: '20.50',
-          descricao: 'bolo de chocolate delicioso',
-          linkCompra: '',
-          linkImagem: 'imgs/bolo-teste.png'
-        },
-        {
-          name: 'Bolo Branco',
-          categoria: 'bolos',
-          preco: '25.50',
-          descricao: 'bolo branco feito massa belga',
-          linkCompra: '',
-          linkImagem: 'imgs/bolo-teste.png'
-        },
-        {
-          name: 'Bolo Branco',
-          categoria: 'bolos',
-          preco: '25.50',
-          descricao: 'bolo branco feito massa belga',
-          linkCompra: '',
-          linkImagem: 'imgs/bolo-teste.png'
-        },
-        {
-          name: 'Bolo Branco',
-          categoria: 'bolos',
-          preco: '25.50',
-          descricao: 'bolo branco feito massa belga',
-          linkCompra: '',
-          linkImagem: 'imgs/bolo-teste.png'
-        },
-        {
-          name: 'Bolo Branco',
-          categoria: 'bolos',
-          preco: '25.50',
-          descricao: 'bolo branco feito massa belga',
-          linkCompra: '',
-          linkImagem: 'imgs/bolo-teste.png'
-        },
-        {
-          name: 'Coxinha',
-          categoria: 'salgados',
-          preco: '3.50',
-          descricao: 'salgado quentinho',
-          linkCompra: '',
-          linkImagem: 'imgs/salgado-teste.png'
-        },
-        {
-          name: 'Pastel',
-          categoria: 'salgados',
-          preco: '3.50',
-          descricao: 'salgado quentinho',
-          linkCompra: '',
-          linkImagem: 'imgs/salgado-teste.png'
-        },
-        {
-          name: 'Pastel de Forno',
-          categoria: 'salgados',
-          preco: '2.50',
-          descricao: 'salgado de forno quentinho',
-          linkCompra: '',
-          linkImagem: 'imgs/salgado-teste.png'
-        },
-        {
-          name: 'Pão de queijo',
-          categoria: 'salgados',
-          preco: '25.50',
-          descricao: 'pão de queijo delicioso',
-          linkCompra: '',
-          linkImagem: 'imgs/salgado-teste.png'
-        },
-        {
-          name: 'Bolo Branco',
-          categoria: 'bolos',
-          preco: '25.50',
-          descricao: 'bolo branco feito massa belga',
-          linkCompra: '',
-          linkImagem: 'imgs/bolo-teste.png'
-        },
-        {
-          name: 'Bolo Branco',
-          categoria: 'bolos',
-          preco: '25.50',
-          descricao: 'bolo branco feito massa belga',
-          linkCompra: '',
-          linkImagem: 'imgs/bolo-teste.png'
-        },
-        {
-          name: 'Bolo Branco',
-          categoria: 'bolos',
-          preco: '25.50',
-          descricao: 'bolo branco feito massa belga',
-          linkCompra: '',
-          linkImagem: 'imgs/bolo-teste.png'
-        },
-        {
-          name: 'Bolo Branco',
-          categoria: 'bolos',
-          preco: '25.50',
-          descricao: 'bolo branco feito massa belga',
-          linkCompra: '',
-          linkImagem: 'imgs/bolo-teste.png'
-        }
-      ]
-      commit('carregaProdutos', produtos)
+    carregaProdutos({ commit }, categoria){
+      let token = localStorage.token
+      let produtos = null
+      let url = categoria !== "" && categoria !== undefined ? `${process.env.VUE_APP_URL_API}/v1/produto?categoria=${categoria}` : `${process.env.VUE_APP_URL_API}/v1/produto`
+      const config = {
+          headers: {
+              'Accept': 'application/json',
+              'Authorization': 'Bearer ' + token
+          }
+      }
+
+      axios.get(url, config)
+          .then(res => {
+            produtos = res.data
+            commit('carregaProdutos', produtos)
+          })
+          .catch(err => {
+            //console.log(err.response)//verificar pq ta vindo undefined
+            commit('carregaProdutos', [])
+          })
     },
   },
   modules: {

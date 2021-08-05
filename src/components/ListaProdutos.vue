@@ -1,17 +1,16 @@
 <template>
-  <section :id="nomeSecao" style="margin-top: 5%; padding-bottom: 15%" class="row">
+  <section :id="categoria" style="margin-top: 5%; padding-bottom: 15%" class="row">
     <h1 style="font-size: 4rem;"> {{ categoria }} </h1>
     <hr class="mt-2">
 
     <div class="col-12 d-flex justify-content-center justify-content-md-around align-items-center flex-wrap">
-        
-        <template v-for="(item, index) in lista" :key="index">
+        <template v-for="(item, index) in listaProdutos.data" :key="index">
             <Card :animacao="(index % 2 == 0) ? 'fade-up' : 'fade-down'">
                 <template v-slot:top>
-                    <img :src="getImgUrl(item.linkImagem)" class="card-img-top" alt="bolo"/>
+                    <img :src="urlBase + '/' + item.imagem" class="card-img-top" alt="bolo"/>
                 </template>
                 <template v-slot:titulo>
-                    {{ item.name }}
+                    {{ item.nome }}
                 </template>
                 <template v-slot:texto>
                     {{ item.descricao }}
@@ -36,7 +35,7 @@ export default {
     },
     data(){
         return {
-            lista: ''
+            urlBase: process.env.VUE_APP_URL_API_BASE,
         }
     },
     methods: {
@@ -50,10 +49,9 @@ export default {
     props: [
         'nomeSecao',
         'categoria',
-        'quantidade',
     ],
     mounted(){
-        this.lista = this.listaProdutos.filter(element => element.categoria === this.categoria).slice(0, this.quantidade)
+        this.$store.dispatch('carregaProdutos', this.categoria)
     }
 };
 </script>

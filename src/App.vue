@@ -79,14 +79,16 @@ export default {
     WhatsApp,
   },
   mounted(){
-    this.$store.dispatch('carregaLarguraAlturaPagina')
-    this.$store.dispatch('carregaMargem')
-    this.$store.dispatch('carregaProdutos')
-    this.$store.dispatch('carregaInformacoes')
-
     if(!localStorage.token){
       utils.login()
     }
+
+    this.$store.dispatch('carregaLarguraAlturaPagina')
+    this.$store.dispatch('carregaMargem')
+    //this.$store.dispatch('carregaProdutos')
+    this.$store.dispatch('carregaInformacoes')
+
+
   }
 }
 </script>

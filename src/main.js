@@ -32,6 +32,28 @@ axios.interceptors.response.use(
                 return Promise.reject(error)
             }
         }
+
+        if(error.response.status == 500 && error.response.data.message == "Token has expired and can no longer be refreshed"){
+            let retorno = await utils.login()
+            if(retorno){
+                error.config.__isRetryRequest = true
+                error.config.headers.Authorization = 'Bearer ' + localStorage.token
+                return axios.request(error.config)
+            }else{
+                return Promise.reject(error)
+            }
+        }
+
+        if(error.response.status == 500 && error.response.data.message == "The token has been blacklisted"){
+            let retorno = await utils.login()
+            if(retorno){
+                error.config.__isRetryRequest = true
+                error.config.headers.Authorization = 'Bearer ' + localStorage.token
+                return axios.request(error.config)
+            }else{
+                return Promise.reject(error)
+            }
+        }
         return Promise.reject(error)
     }
 )
